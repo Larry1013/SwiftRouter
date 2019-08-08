@@ -45,7 +45,7 @@ protocol SwiftRoutable {
     static func initWithParameter(dataProvider: BaseViewControllerDataProvider?) -> UIViewController
 }
 
-enum YWViewRouterAction: SwiftRouterPathable {
+enum SwiftViewRouterAction: SwiftRouterPathable {
     //透過enum定義所有跟Web有關的行為以及需要的參數
     case firstPage(title: String)
     case secondPage(title: String)
@@ -71,7 +71,7 @@ struct DataProvider: BaseViewControllerDataProvider {
 }
 
 class SwiftRouter {
-    open class func open(current: UIViewController?, path: YWViewRouterAction, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
+    open class func open(current: UIViewController?, path: SwiftViewRouterAction, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
         guard let action = path.viewcontroller as? SwiftRoutable.Type else {
             return
         }

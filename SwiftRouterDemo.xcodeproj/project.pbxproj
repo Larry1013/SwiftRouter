@@ -12,7 +12,7 @@
 		CAA705D421ED87CC0084697A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA705D221ED87CC0084697A /* Main.storyboard */; };
 		CAA705D621ED87CD0084697A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA705D521ED87CD0084697A /* Assets.xcassets */; };
 		CAA705D921ED87CD0084697A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA705D721ED87CD0084697A /* LaunchScreen.storyboard */; };
-		CAA705E221ED8B350084697A /* YWRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA705E121ED8B350084697A /* YWRouter.swift */; };
+		CAA705E221ED8B350084697A /* SwiftRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA705E121ED8B350084697A /* SwiftRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		CAA705D521ED87CD0084697A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAA705D821ED87CD0084697A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAA705DA21ED87CD0084697A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAA705E121ED8B350084697A /* YWRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YWRouter.swift; sourceTree = "<group>"; };
+		CAA705E121ED8B350084697A /* SwiftRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 		CAA705C221ED87CC0084697A = {
 			isa = PBXGroup;
 			children = (
-				CAA705CD21ED87CC0084697A /* YWRouterDemo */,
+				CAA705CD21ED87CC0084697A /* SwiftRouterDemo */,
 				CAA705CC21ED87CC0084697A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,10 +53,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CAA705CD21ED87CC0084697A /* YWRouterDemo */ = {
+		CAA705CD21ED87CC0084697A /* SwiftRouterDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CAA705E021ED8B160084697A /* YWRouter */,
+				CAA705E021ED8B160084697A /* SwiftRouter */,
 				CAA705CE21ED87CC0084697A /* AppDelegate.swift */,
 				CAA705D021ED87CC0084697A /* ViewController.swift */,
 				CAA705D221ED87CC0084697A /* Main.storyboard */,
@@ -64,15 +64,15 @@
 				CAA705D721ED87CD0084697A /* LaunchScreen.storyboard */,
 				CAA705DA21ED87CD0084697A /* Info.plist */,
 			);
-			path = YWRouterDemo;
+			path = SwiftRouterDemo;
 			sourceTree = "<group>";
 		};
-		CAA705E021ED8B160084697A /* YWRouter */ = {
+		CAA705E021ED8B160084697A /* SwiftRouter */ = {
 			isa = PBXGroup;
 			children = (
-				CAA705E121ED8B350084697A /* YWRouter.swift */,
+				CAA705E121ED8B350084697A /* SwiftRouter.swift */,
 			);
-			path = YWRouter;
+			path = SwiftRouter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CAA705C621ED87CC0084697A /* Build configuration list for PBXProject "YWRouterDemo" */;
+			buildConfigurationList = CAA705C621ED87CC0084697A /* Build configuration list for PBXProject "SwiftRouterDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,7 +148,7 @@
 			files = (
 				CAA705D121ED87CC0084697A /* ViewController.swift in Sources */,
 				CAA705CF21ED87CC0084697A /* AppDelegate.swift in Sources */,
-				CAA705E221ED8B350084697A /* YWRouter.swift in Sources */,
+				CAA705E221ED8B350084697A /* SwiftRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3BS9QU2W2;
-				INFOPLIST_FILE = YWRouterDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftRouterDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3BS9QU2W2;
-				INFOPLIST_FILE = YWRouterDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftRouterDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CAA705C621ED87CC0084697A /* Build configuration list for PBXProject "YWRouterDemo" */ = {
+		CAA705C621ED87CC0084697A /* Build configuration list for PBXProject "SwiftRouterDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAA705DB21ED87CD0084697A /* Debug */,

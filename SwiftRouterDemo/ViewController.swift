@@ -16,15 +16,15 @@ class BaseViewController: UIViewController {
     }
 
     @IBAction func showFirst(_ sender: Any) {
-        self.ywAction.showFirst(current: self, title: "First!!")
+        self.action.showFirst(current: self, title: "First!!")
     }
     
     @IBAction func showSecond(_ sender: Any) {
-        self.ywAction.showFirst(current: self, title: "Second!!")
+        self.action.showFirst(current: self, title: "Second!!")
     }
     
     @IBAction func showThird(_ sender: Any) {
-        self.ywAction.showFirst(current: self, title: "Third!!")
+        self.action.showFirst(current: self, title: "Third!!")
     }
     
 }
@@ -62,7 +62,7 @@ class ThirdController: UIViewController {
 }
 
 
-extension FirstController: YWRoutable {
+extension FirstController: SwiftRoutable {
     static func initWithParameter(dataProvider: BaseViewControllerDataProvider?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstController") as? FirstController else {
             return UIViewController()
@@ -76,7 +76,7 @@ extension FirstController: YWRoutable {
     }
 }
 
-extension SecondController: YWRoutable {
+extension SecondController: SwiftRoutable {
     static func initWithParameter(dataProvider: BaseViewControllerDataProvider?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondController") as? SecondController else {
             return UIViewController()
@@ -88,7 +88,7 @@ extension SecondController: YWRoutable {
     }
 }
 
-extension ThirdController: YWRoutable {
+extension ThirdController: SwiftRoutable {
     static func initWithParameter(dataProvider: BaseViewControllerDataProvider?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThirdController") as? ThirdController else {
             return UIViewController()
@@ -100,7 +100,7 @@ extension ThirdController: YWRoutable {
     }
 }
 
-extension YWAction where T: BaseViewController {
+extension SwiftAction where T: BaseViewController {
     func showFirst(current: UIViewController?, title: String) {
         YWRouter.open(current: current, path: YWViewRouterAction.firstPage( title: title))
     }

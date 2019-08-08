@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct YWAction<T> {
+public struct SwiftAction<T> {
     public let base: T
     public init(_ base: T) {
         self.base = base
@@ -17,35 +17,35 @@ public struct YWAction<T> {
     
 }
 
-public protocol YWActionProtocol {
+public protocol SwiftActionProtocol {
     associatedtype CompatibleType
-    var ywAction: YWAction<CompatibleType> { get }
+    var action: SwiftAction<CompatibleType> { get }
 }
 
-extension YWActionProtocol {
-    public var ywAction: YWAction<Self> {
+extension SwiftActionProtocol {
+    public var action: SwiftAction<Self> {
         get {
-            return YWAction(self)
+            return SwiftAction(self)
         }
     }
 }
 
-extension NSObject: YWActionProtocol{}
+extension NSObject: SwiftActionProtocol{}
 
-protocol YWRouterPathable {
+protocol SwiftRouterPathable {
     var viewcontroller: UIViewController.Type { get } // 定義有哪些VC要使用Router
 }
 protocol BaseViewControllerDataProvider {
     var parameter: [String: Any?]? { set get }
     init(parameter: [String : Any?]?)
 }
-protocol YWRoutable {
+protocol SwiftRoutable {
     //通過RouterPathable中的params來init並塞值
     
     static func initWithParameter(dataProvider: BaseViewControllerDataProvider?) -> UIViewController
 }
 
-enum YWViewRouterAction: YWRouterPathable {
+enum YWViewRouterAction: SwiftRouterPathable {
     //透過enum定義所有跟Web有關的行為以及需要的參數
     case firstPage(title: String)
     case secondPage(title: String)
@@ -72,7 +72,7 @@ struct DataProvider: BaseViewControllerDataProvider {
 
 class YWRouter {
     open class func open(current: UIViewController?, path: YWViewRouterAction, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
-        guard let action = path.viewcontroller as? YWRoutable.Type else {
+        guard let action = path.viewcontroller as? SwiftRoutable.Type else {
             return
         }
         var vc: UIViewController? = nil

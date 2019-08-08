@@ -30,7 +30,7 @@ extension SwiftActionProtocol {
     }
 }
 
-extension NSObject: SwiftActionProtocol{}
+extension UIViewController: SwiftActionProtocol{}
 
 protocol SwiftRouterPathable {
     var viewcontroller: UIViewController.Type { get } // 定義有哪些VC要使用Router
@@ -70,7 +70,7 @@ struct DataProvider: BaseViewControllerDataProvider {
     }
 }
 
-class YWRouter {
+class SwiftRouter {
     open class func open(current: UIViewController?, path: YWViewRouterAction, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
         guard let action = path.viewcontroller as? SwiftRoutable.Type else {
             return

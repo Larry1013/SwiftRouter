@@ -102,12 +102,12 @@ extension ThirdController: SwiftRoutable {
 
 extension SwiftAction where T: BaseViewController {
     func showFirst(current: UIViewController?, title: String) {
-        YWRouter.open(current: current, path: YWViewRouterAction.firstPage( title: title))
+        SwiftRouter.open(current: current, path: YWViewRouterAction.firstPage( title: title))
     }
     func showSecond(current: UIViewController?, title: String) {
-        YWRouter.open(current: current, path: YWViewRouterAction.secondPage(title: title))
+        SwiftRouter.open(current: current, path: YWViewRouterAction.secondPage(title: title))
     }
     func showThird(current: UIViewController?, title: String) {
-        YWRouter.open(current: current, path: YWViewRouterAction.thirdPage(title: title))
+        SwiftRouter.open(current: current, path: YWViewRouterAction.thirdPage(title: title))
     }
 }

@@ -8,13 +8,17 @@
 
 import Foundation
 import UIKit
+typealias ActionBlock = (UIViewController) -> Void
 protocol SwiftRouterPathable {
     var viewcontroller: UIViewController.Type { get } // 定義有哪些VC要使用Router
+    var actionBlock: ActionBlock? { get }
 }
-protocol BaseViewControllerDataProvider {}
 protocol SwiftRoutable {
     //通過RouterPathable中的params來init並塞值
-    var action: SwiftViewRouterAction? { get set }
-    static func initWith(action: SwiftViewRouterAction?) -> UIViewController
-    func setupWith(_ path: SwiftViewRouterAction?)
+    static func initWith(action: SwiftRouterPathable?) -> UIViewController
+    var path: SwiftRouterPathable? { get set }
+    func setupWithPath()
+}
+protocol Routerable {
+    var path: SwiftRouterPathable { get }
 }

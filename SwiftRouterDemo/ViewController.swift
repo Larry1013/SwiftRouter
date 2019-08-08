@@ -7,12 +7,6 @@
 //
 
 import UIKit
-struct BaseDataProvider: BaseViewControllerDataProvider {
-    var title: String?
-    init(title: String) {
-        self.title = title
-    }
-}
 class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -36,111 +30,145 @@ class BaseViewController: UIViewController {
 
 class FirstController: UIViewController {
     @IBOutlet weak var label: UILabel!
-    var action: SwiftViewRouterAction?
+    var path: SwiftRouterPathable?
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupWith(action)
+        setupWithPath()
         // Do any additional setup after loading the view, typically from a nib.
     }
 }
+enum FirstVCType: SwiftRouterPathable {
+    var viewcontroller: UIViewController.Type {
+        return FirstController.self
+    }
+    var actionBlock: ActionBlock? {
+        switch self {
+        case .normal(let title):
+            return {(vc) in
+                if let vc = vc as? FirstController {
+                    vc.label.text = title
+                }
+            }
+        }
+    }
 
+    case normal(title: String)
+}
+enum SecondVCType: SwiftRouterPathable {
+    var viewcontroller: UIViewController.Type {
+        return SecondController.self
+    }
+    var actionBlock: ActionBlock? {
+        switch self {
+        case .normal(let title):
+            return {(vc) in
+                if let vc = vc as? SecondController {
+                    vc.label.text = title
+                }
+            }
+        }
+    }
+    case normal(title: String)
+}
+enum ThirdVCType: SwiftRouterPathable {
+    var viewcontroller: UIViewController.Type {
+        return ThirdController.self
+    }
+    var actionBlock: ActionBlock? {
+        switch self {
+        case .normal(let title):
+            return {(vc) in
+                if let vc = vc as? ThirdController {
+                    vc.label.text = title
+                }
+            }
+        }
+    }
+
+    case normal(title: String)
+}
 class SecondController: UIViewController {
     @IBOutlet weak var label: UILabel!
-    var action: SwiftViewRouterAction?
+    var path: SwiftRouterPathable?
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupWithPath()
         self.view.backgroundColor = .green
-        setupWith(action)
         // Do any additional setup after loading the view, typically from a nib.
     }
 }
 
 class ThirdController: UIViewController {
     @IBOutlet weak var label: UILabel!
-    var action: SwiftViewRouterAction?
+    var path: SwiftRouterPathable?
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupWithPath()
         self.view.backgroundColor = .yellow
-        setupWith(action)
         // Do any additional setup after loading the view, typically from a nib.
     }
 }
 
 
 extension FirstController: SwiftRoutable {
-    func setupWith(_ path: SwiftViewRouterAction?) {
-        guard let action = path else {
+    func setupWithPath() {
+        guard let path = path else {
             return
         }
-        switch action {
-        case .firstPage(let title):
-            label.text = title
-        default:
-            break
-        }
+        path.actionBlock?(self)
     }
 
-    static func initWith(action: SwiftViewRouterAction?) -> UIViewController {
+    static func initWith(action: SwiftRouterPathable?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstController") as? FirstController else {
             return UIViewController()
         }
-        vc.action = action
+        vc.path = action
         return vc
     }
 }
 
+
 extension SecondController: SwiftRoutable {
-    func setupWith(_ path: SwiftViewRouterAction?) {
-        guard let action = path else {
+    func setupWithPath() {
+        guard let path = path else {
             return
         }
-        switch action {
-        case .secondPage(let title):
-            label.text = title
-        default:
-            break
-        }
+        path.actionBlock?(self)
     }
 
-    static func initWith(action: SwiftViewRouterAction?) -> UIViewController {
+    static func initWith(action: SwiftRouterPathable?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondController") as? SecondController else {
             return UIViewController()
         }
-        vc.action = action
+        vc.path = action
         return vc
     }
 }
 
 extension ThirdController: SwiftRoutable {
-    func setupWith(_ path: SwiftViewRouterAction?) {
-        guard let action = path else {
+    func setupWithPath() {
+        guard let path = path else {
             return
         }
-        switch action {
-        case .thirdPage(let title):
-            label.text = title
-        default:
-            break
-        }
+        path.actionBlock?(self)
     }
-
-    static func initWith(action: SwiftViewRouterAction?) -> UIViewController {
+    static func initWith(action: SwiftRouterPathable?) -> UIViewController {
         guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThirdController") as? ThirdController else {
             return UIViewController()
         }
-        vc.action = action
+        vc.path = action
         return vc
     }
 }
 
 extension SwiftAction where T: BaseViewController {
     func showFirst(current: UIViewController?, title: String) {
-        SwiftRouter.open(current: current, path: SwiftViewRouterAction.firstPage(title: "Larry"))
+        SwiftRouter.open(current: current, path: FirstVCType.normal(title: title))
     }
     func showSecond(current: UIViewController?, title: String) {
-        SwiftRouter.open(current: current, path: SwiftViewRouterAction.secondPage(title: "Larry2"))
+        SwiftRouter.open(current: current, path: SecondVCType.normal(title: title))
     }
     func showThird(current: UIViewController?, title: String) {
-        SwiftRouter.open(current: current, path: SwiftViewRouterAction.thirdPage(title:"Larry3"))
+        SwiftRouter.open(current: current, path: ThirdVCType.normal(title: title))
     }
 }

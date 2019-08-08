@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		46E3C28C22FC09A000B68EFE /* SwiftRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E3C28B22FC09A000B68EFE /* SwiftRouterProtocol.swift */; };
 		46E3C28E22FC09CE00B68EFE /* SwiftRouterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E3C28D22FC09CE00B68EFE /* SwiftRouterBase.swift */; };
-		46E3C29022FC0A0600B68EFE /* SwiftRouterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E3C28F22FC0A0600B68EFE /* SwiftRouterAction.swift */; };
 		CAA705CF21ED87CC0084697A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA705CE21ED87CC0084697A /* AppDelegate.swift */; };
 		CAA705D121ED87CC0084697A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA705D021ED87CC0084697A /* ViewController.swift */; };
 		CAA705D421ED87CC0084697A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA705D221ED87CC0084697A /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		46E3C28B22FC09A000B68EFE /* SwiftRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRouterProtocol.swift; sourceTree = "<group>"; };
 		46E3C28D22FC09CE00B68EFE /* SwiftRouterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRouterBase.swift; sourceTree = "<group>"; };
-		46E3C28F22FC0A0600B68EFE /* SwiftRouterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRouterAction.swift; sourceTree = "<group>"; };
 		CAA705CB21ED87CC0084697A /* YWRouterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YWRouterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA705CE21ED87CC0084697A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAA705D021ED87CC0084697A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			children = (
 				CAA705E121ED8B350084697A /* SwiftRouter.swift */,
 				46E3C28D22FC09CE00B68EFE /* SwiftRouterBase.swift */,
-				46E3C28F22FC0A0600B68EFE /* SwiftRouterAction.swift */,
 				46E3C28B22FC09A000B68EFE /* SwiftRouterProtocol.swift */,
 			);
 			path = SwiftRouter;
@@ -155,7 +152,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E3C29022FC0A0600B68EFE /* SwiftRouterAction.swift in Sources */,
 				46E3C28C22FC09A000B68EFE /* SwiftRouterProtocol.swift in Sources */,
 				46E3C28E22FC09CE00B68EFE /* SwiftRouterBase.swift in Sources */,
 				CAA705D121ED87CC0084697A /* ViewController.swift in Sources */,

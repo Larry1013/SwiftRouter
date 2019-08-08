@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class SwiftRouter {
-    open class func open(current: UIViewController?, path: SwiftViewRouterAction, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
+    open class func open(current: UIViewController?, path: SwiftRouterPathable, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
         guard let action = path.viewcontroller as? SwiftRoutable.Type else {
             return
         }
@@ -26,10 +26,5 @@ class SwiftRouter {
                 nav.pushViewController(currentVC, animated: animated)
             }
         }
-    }
-}
-class RouterViewController: UIViewController {
-    override func viewDidLoad() {
-
     }
 }

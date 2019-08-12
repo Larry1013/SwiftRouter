@@ -38,7 +38,7 @@ class FirstController: UIViewController {
     }
 }
 enum FirstVCType: SwiftRouterPathable {
-    var viewcontroller: UIViewController.Type {
+    var viewcontroller: SwiftRoutable.Type {
         return FirstController.self
     }
     var actionBlock: ActionBlock? {
@@ -55,7 +55,7 @@ enum FirstVCType: SwiftRouterPathable {
     case normal(title: String)
 }
 enum SecondVCType: SwiftRouterPathable {
-    var viewcontroller: UIViewController.Type {
+    var viewcontroller: SwiftRoutable.Type {
         return SecondController.self
     }
     var actionBlock: ActionBlock? {
@@ -71,7 +71,7 @@ enum SecondVCType: SwiftRouterPathable {
     case normal(title: String)
 }
 enum ThirdVCType: SwiftRouterPathable {
-    var viewcontroller: UIViewController.Type {
+    var viewcontroller: SwiftRoutable.Type {
         return ThirdController.self
     }
     var actionBlock: ActionBlock? {

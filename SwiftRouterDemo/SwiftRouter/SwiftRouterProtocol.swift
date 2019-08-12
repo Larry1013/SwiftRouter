@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 typealias ActionBlock = (UIViewController) -> Void
 protocol SwiftRouterPathable {
-    var viewcontroller: UIViewController.Type { get } // 定義有哪些VC要使用Router
+    var viewcontroller: SwiftRoutable.Type { get } // 定義有哪些VC要使用Router
     var actionBlock: ActionBlock? { get }
 }
 protocol SwiftRoutable {

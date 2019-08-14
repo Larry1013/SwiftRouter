@@ -52,6 +52,10 @@ class YourController: UIViewController {
         setupWithPath()
     }
 }
+//4. in your original viewcontroller call SwiftRouter.open to navigate next viewcontroller 
+func goToYourController(title: String) {
+        SwiftRouter.open(current: self, path: YourVCType.normal(title: title))
+    }
 ```
 
 ## License

@@ -8,12 +8,22 @@
 
 import Foundation
 import UIKit
-
 class SwiftRouter {
-    open class func open(current: UIViewController?, path: SwiftRouterPathable, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
-        guard let action = path.viewcontroller as? SwiftRoutable.Type else {
-            return
+    static let shared = SwiftRouter()
+    var currentNav: UINavigationController?
+    open class func createNavWith(_ vc: UIViewController) {
+        let router = SwiftRouter.shared
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            appdelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            let nav = UINavigationController()
+            nav.viewControllers = [vc]
+            appdelegate.window?.rootViewController = nav
+            appdelegate.window?.makeKeyAndVisible()
+            router.currentNav = nav
         }
+    }
+    open class func open(current: UIViewController?, path: SwiftRouterPathable, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
+        let action = path.viewcontroller
         var vc: UIViewController?
         vc = action.initWith(action: path)
         guard let currentVC = vc else {
@@ -22,7 +32,7 @@ class SwiftRouter {
         if present {
             current?.present(currentVC, animated: animated, completion: presentComplete)
         } else {
-            if let nav = current?.navigationController {
+            if let nav = SwiftRouter.shared.currentNav {
                 nav.pushViewController(currentVC, animated: animated)
             }
         }

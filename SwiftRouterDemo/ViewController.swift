@@ -27,6 +27,9 @@ class BaseViewController: UIViewController {
         self.action.showThird(current: self, title: "Third!!")
     }
     
+    @IBAction func presentVc(_ sender: Any) {
+        self.action.presentFirst(current: self, title: "pre看看")
+    }
 }
 
 class FirstController: UIViewController {
@@ -171,5 +174,10 @@ extension SwiftAction where T: BaseViewController {
     }
     func showThird(current: UIViewController?, title: String) {
         SwiftRouter.open(current: current, path: ThirdVCType.normal(title: title))
+    }
+    func presentFirst(current: UIViewController? ,title: String) {
+        SwiftRouter.open(current: current, path: FirstVCType.normal(title: title), present: true, animated: true) {
+            print("present成功")
+        }
     }
 }

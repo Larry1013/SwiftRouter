@@ -11,16 +11,15 @@ import UIKit
 class SwiftRouter {
     static let shared = SwiftRouter()
     var currentNav: UINavigationController?
-    open class func createNavWith(_ vc: UIViewController) {
+    private var currentWindow: UIWindow?
+    open class func createNavWith(vc: UIViewController, window: UIWindow) {
         let router = SwiftRouter.shared
-        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
-            appdelegate.window = UIWindow(frame: UIScreen.main.bounds)
-            let nav = UINavigationController()
-            nav.viewControllers = [vc]
-            appdelegate.window?.rootViewController = nav
-            appdelegate.window?.makeKeyAndVisible()
-            router.currentNav = nav
-        }
+        let nav = UINavigationController()
+        nav.viewControllers = [vc]
+        window.rootViewController = nav
+        window.makeKeyAndVisible()
+        router.currentNav = nav
+        router.currentWindow = window
     }
     open class func open(current: UIViewController?, path: SwiftRouterPathable, present: Bool = false, animated: Bool = true, presentComplete: (() -> Void)? = nil) {
         let action = path.viewcontroller

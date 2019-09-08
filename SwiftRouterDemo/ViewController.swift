@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SwiftRouter.createNavWith(self)
+        SwiftRouter.createNavWith(vc: self, window: UIWindow(frame: UIScreen.main.bounds))
     }
 
     @IBAction func showFirst(_ sender: Any) {

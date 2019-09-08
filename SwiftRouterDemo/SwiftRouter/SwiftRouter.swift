@@ -36,4 +36,8 @@ class SwiftRouter {
             }
         }
     }
+    open class func setDelegate(delegate: UINavigationControllerDelegate) {
+        let router = SwiftRouter.shared
+        router.currentNav?.delegate = delegate
+    }
 }

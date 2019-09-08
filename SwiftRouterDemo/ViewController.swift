@@ -7,12 +7,18 @@
 //
 
 import UIKit
+extension BaseViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        print("will show")
+    }
+}
 class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         SwiftRouter.createNavWith(vc: self, window: UIWindow(frame: UIScreen.main.bounds))
+        SwiftRouter.setDelegate(delegate: self)
     }
 
     @IBAction func showFirst(_ sender: Any) {
